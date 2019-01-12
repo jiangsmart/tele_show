@@ -1,0 +1,23 @@
+<div class="msg-box">
+    <div class="picture">
+        {% if message.author=='ai' %}
+            <img class="pop-card" data-position="right center" data-offset="-40"
+             src="{{ url_for('static', filename='ai.png') }}">
+        {% else %}
+            <img class="pop-card" data-position="left center" data-offset="-40"
+             src="{{ url_for('static', filename='user.png') }}">
+        {% endif %}
+    </div>
+    <div class="msg">
+        <span class="nickname">
+            {% if message.author=='ai' %}
+            {{'小邮'}}
+            {% else %}
+            {{'我'}}
+            {% endif %}
+        </span>
+        {% for line in message.body %}
+            <div class="message-body">{{ line|safe }}</div>
+        {% endfor %}
+    </div>
+</div>

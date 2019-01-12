@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% block title %}邮游6{% endblock %}
+
+{% block content %}
+    <div class="pusher">
+        <div class="chat-box">
+            <div class="messages">
+                <div class="ui text loader">正在加载</div>
+                {% include 'chat/_messages.html' %}
+            </div>
+        </div>
+        <div class="input-area">
+            <div class="ui grid form">
+                <div class="ten wide column">
+                    <div class="field fluid message-box">
+                        <img class="pop-card input-avatar" data-position="bottom left">
+                        <textarea rows="2" id="message-textarea"
+                                  placeholder="你想对小邮说什么... 回车发送"></textarea>
+                    </div>
+                </div>
+                <div class="four wide column right floated right aligned hide-on-mobile">
+                    <p>Written by <a href="https://github.com/jiangsmart">Xilun Jiang</a><br>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+    <script type="text/javascript">
+        var socket = io('/');
+    </script>
+{% endblock %}

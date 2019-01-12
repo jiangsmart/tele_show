@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head %}
+    <title>{% block title %}{% block page_title %}{% endblock %} - CatChat{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{{ url_for('static', filename='buptlogo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='semantic-ui/semantic.min.css') }}">
+    {% endblock %}
+</head>
+
+<body>
+
+{% block nav %}
+<div class="ui top fixed borderless menu">
+    <a class="item bupt" href="{{ url_for('web.home') }}">
+        <img src="{{ url_for('static', filename='buptlogo.png') }}" width="30" height="30">
+        <span>旅游规划平台</span>
+    </a>
+    <a class="item mapserver" href="{{ url_for('web.mapserve') }}">
+        <span>地图展示</span>
+    </a>
+    <a class="item auto" href="{{ url_for('web.autochat') }}">
+        <span>邮游6</span>
+    </a>
+</div>
+{% endblock %}
+
+
+{% block content %}{% endblock %}
+
+{% block footer %}
+<div id="footer" class="flex-hor-center">
+    <span>created by xilunjiang</span>
+</div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='semantic-ui/semantic.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/socket.io.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/forms.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script type="text/javascript">
+        var root_url = "{{ url_for('web.autochat') }}";
+        var csrf_token = "{{ '123456789' }}";
+    </script>
+{% endblock %}
+</body>
+</html>
