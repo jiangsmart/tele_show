@@ -6,8 +6,11 @@ from flask import Flask
 from app.web import web
 from app.web.autochat import socketio
 
+
 def create_app():
     app = Flask(__name__)
+    app.config.from_object('app.settings')
+    app.config.from_object('app.secure')
     app.register_blueprint(web)
     socketio.init_app(app)
     return app

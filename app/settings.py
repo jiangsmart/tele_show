@@ -1,0 +1,7 @@
+CSRF_TOKEN = '1234567890asdfghjkl;'
+NEO4J_IP = 'http://222.85.28.230:9812'
+NEO4J_USER = 'neo4j'
+NEO4J_PASSWORD = 'wtist'
+HOST = '0.0.0.0'
+DEBUG = True
+PORT = 3014

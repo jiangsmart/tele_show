@@ -9,3 +9,5 @@ web = Blueprint('web', __name__)
 from . import autochat
 from . import home
 from . import mapserve
+from . import auth
+

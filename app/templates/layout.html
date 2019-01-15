@@ -2,7 +2,7 @@
 <html>
 <head>
     {% block head %}
-    <title>{% block title %}{% block page_title %}{% endblock %} - CatChat{% endblock %}</title>
+    <title>{% block title %}{% block page_title %}{% endblock %} - 旅游规划平台 {% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="{{ url_for('static', filename='buptlogo.png') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -24,6 +24,16 @@
     <a class="item auto" href="{{ url_for('web.autochat') }}">
         <span>邮游6</span>
     </a>
+    <div class="right menu hide-on-mobile">
+            <div class="item">
+                <a class="ui primary button" href="{{ url_for('web.login') }}">
+                    登出</a>
+            </div>
+            <div class="item">
+                <a class="ui primary button" href="{{ url_for('web.login') }}">
+                    登录</a>
+            </div>
+    </div>
 </div>
 {% endblock %}
 
@@ -31,8 +41,8 @@
 {% block content %}{% endblock %}
 
 {% block footer %}
-<div id="footer" class="flex-hor-center">
-    <span>created by xilunjiang</span>
+<div id="footer" class="four wide column">
+    <p>Written by <a href="https://github.com/jiangsmart">Xilun Jiang</a><br>
 </div>
 {% endblock %}
 
@@ -44,7 +54,7 @@
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     <script type="text/javascript">
         var root_url = "{{ url_for('web.autochat') }}";
-        var csrf_token = "{{ '123456789' }}";
+        var csrf_token = "{{ '1234567890' }}";
     </script>
 {% endblock %}
 </body>

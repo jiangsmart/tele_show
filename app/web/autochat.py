@@ -1,4 +1,4 @@
-from flask import render_template, request
+from flask import render_template, request, current_app
 from app.models.message import Message
 from . import web
 from flask_socketio import emit, SocketIO
@@ -24,7 +24,7 @@ def new_message(message_body):
           'message_body': message_body},
          broadcast=False)
 
-    graph = Graph4Match('http://localhost:3412', 'neo4j', 'wtist')
+    graph = Graph4Match(current_app.config['NEO4J_IP'], current_app.config['NEO4J_USER'], current_app.config['NEO4J_PASSWORD'])
     out = graph.match_in_string(message_body[0]).split('\n')
     out_message = Message(author='ai', body=out)
     emit('new message',
