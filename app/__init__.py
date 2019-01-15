@@ -10,7 +10,7 @@ from app.web.autochat import socketio
 def create_app():
     app = Flask(__name__)
     app.config.from_object('app.settings')
-    app.config.from_object('app.secure')
+    app.config.from_object('app.secures')
     app.register_blueprint(web)
     socketio.init_app(app)
     return app
