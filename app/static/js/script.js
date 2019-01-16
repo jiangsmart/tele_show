@@ -12,20 +12,11 @@ $(document).ready(function () {
         }
     });
 
-    function scrollToBottom() {
-        var $messages = $('.messages');
-        $messages.scrollTop($messages[0].scrollHeight);
-    }
-
     var page = 1;
 
     socket.on('new message', function (data) {
-        message_count++;
-        if (!document.hasFocus()) {
-            document.title = '(' + message_count + ') ' + 'CatChat';
-        }
         $('.messages').append(data.message_html);
-        scrollToBottom();
+        document.documentElement.scrollTop = 9000000000000000;
     });
 
     function new_message(e) {
@@ -41,4 +32,16 @@ $(document).ready(function () {
     // submit message
     $('#message-textarea').on('keydown', new_message.bind(this));
 
+    function activateSemantics() {
+        $('.ui.dropdown').dropdown();
+        $('.ui.checkbox').checkbox();
+
+        $('.message .close').on('click', function () {
+            $(this).closest('.message').transition('fade');
+        });
+
+        $('#toggle-sidebar').on('click', function () {
+            $('.menu.sidebar').sidebar('setting', 'transition', 'overlay').sidebar('toggle');
+        });
+    }
 });

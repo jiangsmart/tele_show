@@ -4,7 +4,7 @@
             <img class="pop-card" data-position="right center" data-offset="-40"
              src="{{ url_for('static', filename='ai.png') }}">
         {% else %}
-            <img class="pop-card" data-position="left center" data-offset="-40"
+            <img class="pop-card" data-position="right center" data-offset="-40"
              src="{{ url_for('static', filename='user.png') }}">
         {% endif %}
     </div>
@@ -17,7 +17,7 @@
             {% endif %}
         </span>
         {% for line in message.body %}
-            <div class="message-body">{{ line|safe }}</div>
+            <span class="message-body">{{ line|safe }}</span>
         {% endfor %}
     </div>
 </div>
