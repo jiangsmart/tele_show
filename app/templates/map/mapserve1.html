@@ -132,14 +132,9 @@
     {% for point in points %}
         var cirle = new qq.maps.Circle({
             center: new qq.maps.LatLng({{point[2]}}, {{point[1]}}),
-            radius: 3000,
+            radius: {{point[3]}},
             map: map,
             strokeWeight: 3
-            });
-        var marker = new qq.maps.Label({
-            position: new qq.maps.LatLng({{point[2]}}, {{point[1]}}),
-            map: map,
-            content:'{{point[0]}}'
             });
     {% endfor %}
     }
