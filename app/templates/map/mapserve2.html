@@ -135,7 +135,7 @@
             radius: {{station[3]}},
             map: map,
             strokeWeight: 3,
-            strokeColor: '#0000FF'
+            strokeColor: '{{station[6]}}'
             });
         var marker = new qq.maps.Label({
             position: new qq.maps.LatLng({{station[2]}}, {{station[1]}}),
@@ -149,7 +149,8 @@
             radius: {{scene[4]}},
             map: map,
             strokeWeight: 3,
-            strokeColor: "#ff0000"
+            strokeColor: '{{scene[5]}}',
+            fillColor: '{{scene[5]}}'
             });
         var marker = new qq.maps.Label({
             position: new qq.maps.LatLng({{scene[3]}}, {{scene[2]}}),
